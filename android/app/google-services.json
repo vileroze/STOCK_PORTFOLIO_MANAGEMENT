@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "789440295970",
+    "project_id": "portfolio-management-40bc1",
+    "storage_bucket": "portfolio-management-40bc1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789440295970:android:6875dbd0c485d27271467b",
+        "android_client_info": {
+          "package_name": "com.novelty.portfolio_management"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "789440295970-7h0nk3qdaqa59rdj1qsguogtddu0t3bc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKO2bStBCa9eK7V0VcSArn19CIH3afxbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789440295970-7h0nk3qdaqa59rdj1qsguogtddu0t3bc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
