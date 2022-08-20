@@ -20,7 +20,7 @@ class _TransactionsState extends State<Transactions> {
 
   void _activateListeners() {
     _database.child('transactions/aaaaa/').onValue.listen((event) {
-      print(event.snapshot.value);
+      // print(event.snapshot.value);
     });
   }
 
@@ -28,7 +28,7 @@ class _TransactionsState extends State<Transactions> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 16, 228, 169),
+      backgroundColor: Color.fromARGB(255, 4, 151, 110),
       body: Padding(
         padding: const EdgeInsets.only(top: 30),
         child: Container(

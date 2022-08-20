@@ -71,12 +71,7 @@ class TransactionHelper {
             DefaultTextStyle(
               style: TextStyle(
                   // color: Colors.black,
-                  color: Color.fromARGB(
-                    255,
-                    16,
-                    228,
-                    169,
-                  ),
+                  color: Color.fromARGB(255, 4, 151, 110),
                   fontWeight: FontWeight.bold),
               child: Padding(
                 padding: const EdgeInsets.only(right: 20),

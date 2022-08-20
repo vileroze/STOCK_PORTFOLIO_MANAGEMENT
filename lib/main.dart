@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:portfolio_management/bottom_navigation.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -17,9 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primaryColor: Color.fromARGB(255, 16, 228, 169),
-      ),
+      // theme: ThemeData(primaryColor: Color.fromARGB(255, 4, 151, 110)),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
@@ -34,6 +33,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return BottomNavigation(currentIndx: 2);
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    return BottomNavigation(currentIndx: 1);
   }
 }

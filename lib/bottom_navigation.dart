@@ -45,16 +45,36 @@ class _BottomNavigationState extends State<BottomNavigation> {
         systemOverlayStyle:
             SystemUiOverlayStyle(statusBarColor: Colors.transparent),
         title: Padding(
-          padding: EdgeInsets.only(top: 40.0, bottom: 15.0),
-          child: Text(
-            'Good ' + greeting() + ', Saugat!',
-            style: GoogleFonts.poppins(
-                fontSize: size.width / 20, fontWeight: FontWeight.w500),
+          padding: const EdgeInsets.only(bottom: 5),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: 30.0, bottom: 15.0),
+                child: Text(
+                  'Good ' + greeting() + ', Samaira!',
+                  style: GoogleFonts.poppins(
+                      fontSize: size.width / 20, fontWeight: FontWeight.w500),
+                ),
+              ),
+              CircleAvatar(
+                radius: size.width / 10,
+                backgroundColor: Colors.deepOrange[500],
+                child: ClipOval(
+                  child: Image.network(
+                    'https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg',
+                    fit: BoxFit.cover,
+                    width: size.width / 5,
+                    height: size.width / 5,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 16, 228, 169),
+            color: Color.fromARGB(255, 4, 151, 110),
           ),
         ),
       ),
@@ -82,7 +102,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           ),
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
-            selectedItemColor: Color.fromARGB(255, 16, 228, 169),
+            selectedItemColor: Color.fromARGB(255, 4, 151, 110),
             unselectedItemColor: Colors.black,
             selectedFontSize: size.width / 40,
             unselectedFontSize: size.width / 40,
@@ -96,7 +116,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
 
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                backgroundColor: Colors.amber,
+                // backgroundColor: Colors.amber,
                 icon: Icon(
                   Icons.history,
                   size: btmNavIconSize,

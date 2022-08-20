@@ -44,6 +44,9 @@ dev_dependencies:
   cloud_firestore: ^3.4.5
   firebase_database: ^9.1.2
   recase: ^4.0.0
+  intl: ^0.17.0
+  fluttertoast: ^8.0.9
+  auto_size_text: ^3.0.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
