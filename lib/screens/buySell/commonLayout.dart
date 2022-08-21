@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class CommonLayout extends StatefulWidget {
-  final String type;
+  String type = 'BuyPage';
   CommonLayout(this.type);
 
   @override
@@ -16,7 +16,7 @@ class CommonLayout extends StatefulWidget {
 class _CommonLayoutState extends State<CommonLayout> {
   String dropdownValue = 'Standard Chartered Bank';
   final String todayDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
-  late StreamSubscription _userTypeStream;
+  // late StreamSubscription _userTypeStream;
   final _database = FirebaseDatabase.instance.ref();
   bool isBuy = true;
   int totalUnits = 0;
@@ -32,34 +32,34 @@ class _CommonLayoutState extends State<CommonLayout> {
   }
 
   void _getAllStockName() {
-    if (widget.type == 'BuyPage') {
-      _database.child('allStocks/').onValue.listen((event) {
-        final allStocks = Map<dynamic, dynamic>.from(
-            ((event.snapshot.value) as Map<dynamic, dynamic>));
-
-        allStocks.forEach((key, value) {
-          stockNameArr.add(key);
-        });
-      });
-    } else if (widget.type == 'SellPage') {
+    print('FFFFFFFFFFFFFFFFFf');
+    if (widget.type == 'SellPage') {
       _database.child('transactions/').onValue.listen((event) {
         final alltransaction = Map<dynamic, dynamic>.from(
             ((event.snapshot.value) as Map<dynamic, dynamic>));
 
         alltransaction.forEach((key, value) {
           final indTransaction = Map<dynamic, dynamic>.from(value);
-
-          // print(indTransaction['stock_name'].toString());
           if (indTransaction['type'] == 'Buy' &&
               !stockNameArr.contains(indTransaction['stock_name'])) {
             stockNameArr.add(indTransaction['stock_name'].toString());
+            print(indTransaction['stock_name']);
           }
-
-          // print(key);
-          // stockNameArr.add(key);
         });
       });
     }
+
+    _database.child('allStocks/').onValue.listen((event) {
+      final allStocks = Map<dynamic, dynamic>.from(
+          ((event.snapshot.value) as Map<dynamic, dynamic>));
+
+      allStocks.forEach((key, value) {
+        stockNameArr.add(key);
+        for (var st in stockNameArr) {
+          print('+++++++++ ' + st);
+        }
+      });
+    });
     print('tttttttttttttttttt');
   }
 
@@ -111,8 +111,8 @@ class _CommonLayoutState extends State<CommonLayout> {
                   dropdownValue = newValue!;
 
                   totalUnits = 0;
-                  _userTypeStream =
-                      _database.child('transactions/').onValue.listen((event) {
+                  // _userTypeStream =
+                  _database.child('transactions/').onValue.listen((event) {
                     final alltransaction = Map<dynamic, dynamic>.from(
                         ((event.snapshot.value) as Map<dynamic, dynamic>));
                     alltransaction.forEach((key, value) {

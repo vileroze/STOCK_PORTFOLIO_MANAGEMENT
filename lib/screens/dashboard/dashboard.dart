@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_management/screens/detailedView/available_stocks.dart';
 // import 'package:auto_size_text/auto_size_text.dart';
 import 'package:recase/recase.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -25,7 +26,7 @@ class _DashboardState extends State<Dashboard> {
     _getCapitalInvested();
     _getValuationOfStocksSold();
     _getCurrentValuationOfStocks();
-    _getAllTimeProfit();
+    // _getAllTimeProfit();
   }
 
   void _getNumberOfStocks() {
@@ -106,7 +107,15 @@ class _DashboardState extends State<Dashboard> {
     });
   }
 
-  void _getAllTimeProfit() {}
+  // void _getAllTimeProfit() {
+  //   setState(() {
+  //     print(currentValuation.toString() +
+  //         '---------------' +
+  //         capitalInvested.toString());
+
+  //     totalProfit = currentValuation - capitalInvested;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -171,7 +180,7 @@ class _DashboardState extends State<Dashboard> {
                 'profit',
                 Icons.money_rounded,
                 Color.fromARGB(255, 4, 151, 110),
-                totalProfit.toString(),
+                (currentValuation - capitalInvested).toString(),
                 'All time profits made through this app',
                 Color.fromARGB(255, 236, 229, 229),
               ),
@@ -194,14 +203,19 @@ class _DashboardState extends State<Dashboard> {
               ),
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AvailableStocks()),
+            );
+          },
           child: Padding(
             padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
             child: Wrap(
               children: [
                 Text(
                   'VIEW DETAILS',
-                  style: TextStyle(fontSize: 20, letterSpacing: 2),
+                  style: TextStyle(fontSize: 20, letterSpacing: 1),
                 ),
                 const SizedBox(
                   width: 10,

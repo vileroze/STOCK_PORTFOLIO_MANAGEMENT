@@ -34,6 +34,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    return BottomNavigation(currentIndx: 1);
+    return BottomNavigation(currentIndx: 2);
   }
 }
