@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class CommonLayout extends StatefulWidget {
-  String type = 'BuyPage';
+  String type;
   CommonLayout(this.type);
 
   @override
@@ -33,7 +33,22 @@ class _CommonLayoutState extends State<CommonLayout> {
 
   void _getAllStockName() {
     print('FFFFFFFFFFFFFFFFFf');
-    if (widget.type == 'SellPage') {
+    if (widget.type == 'BuyPage') {
+      _database.child('allStocks/').onValue.listen((event) {
+        final allStocks = Map<dynamic, dynamic>.from(
+            ((event.snapshot.value) as Map<dynamic, dynamic>));
+
+        allStocks.forEach((key, value) {
+          setState(() {
+            stockNameArr.add(key);
+          });
+        });
+      });
+
+      // for (var st in stockNameArr) {
+      //   print('+++++++++ ' + st);
+      // }
+    } else if (widget.type == 'SellPage') {
       _database.child('transactions/').onValue.listen((event) {
         final alltransaction = Map<dynamic, dynamic>.from(
             ((event.snapshot.value) as Map<dynamic, dynamic>));
@@ -42,24 +57,16 @@ class _CommonLayoutState extends State<CommonLayout> {
           final indTransaction = Map<dynamic, dynamic>.from(value);
           if (indTransaction['type'] == 'Buy' &&
               !stockNameArr.contains(indTransaction['stock_name'])) {
-            stockNameArr.add(indTransaction['stock_name'].toString());
-            print(indTransaction['stock_name']);
+            setState(() {
+              stockNameArr.add(indTransaction['stock_name'].toString());
+            });
+
+            // print(indTransaction['stock_name']);
           }
         });
       });
     }
 
-    _database.child('allStocks/').onValue.listen((event) {
-      final allStocks = Map<dynamic, dynamic>.from(
-          ((event.snapshot.value) as Map<dynamic, dynamic>));
-
-      allStocks.forEach((key, value) {
-        stockNameArr.add(key);
-        for (var st in stockNameArr) {
-          print('+++++++++ ' + st);
-        }
-      });
-    });
     print('tttttttttttttttttt');
   }
 
