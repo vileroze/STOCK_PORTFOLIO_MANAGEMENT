@@ -32,7 +32,7 @@ class _CommonLayoutState extends State<CommonLayout> {
   }
 
   void _getAllStockName() {
-    print('FFFFFFFFFFFFFFFFFf');
+    // print('FFFFFFFFFFFFFFFFFf');
     if (widget.type == 'BuyPage') {
       _database.child('allStocks/').onValue.listen((event) {
         final allStocks = Map<dynamic, dynamic>.from(
@@ -67,7 +67,7 @@ class _CommonLayoutState extends State<CommonLayout> {
       });
     }
 
-    print('tttttttttttttttttt');
+    // print('tttttttttttttttttt');
   }
 
   @override
@@ -145,7 +145,7 @@ class _CommonLayoutState extends State<CommonLayout> {
                 });
               },
               items: stockNameArr.map((String option) {
-                print('rrrrrrrrrrrrrrrrrrr');
+                // print('rrrrrrrrrrrrrrrrrrr');
                 return DropdownMenuItem<String>(
                   value: option,
                   child: Text(option),
