@@ -1,4 +1,5 @@
 # PORTFOLIO_MANAGEMENT
+A working concept of a stock trading and managing app
 
 ## DASHBOARD
 <p float="left">
